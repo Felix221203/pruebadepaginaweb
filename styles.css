@@ -1,0 +1,691 @@
+
+        /* Estilos generales */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 2px;
+            padding: 0;
+            background-color: #e0f2f7; /* Un azul claro muy suave para el fondo */
+            color: #000000; /* Color de texto principal */
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Desplazamiento suave para la navegación */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #1a237e; /* Azul índigo profundo */
+            color: #ffffff; /* Azul muy claro */
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgb(0, 0, 0); /* Sombra más definida */
+            position: relative;
+            overflow: hidden; /* Para contener los elementos animados */
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: slideInLeft 1s ease-out; /* Animación de entrada */
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-style: italic;
+            animation: slideInRight 1s ease-out 0.2s; /* Animación con retraso */
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Menú de navegación */
+        nav {
+            background-color: #283593; /* Azul índigo un poco más claro */
+            padding: 12px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25); /* Sombra para el menú */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 18px;
+        }
+
+        nav ul li a {
+            color: #e3f2fd;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 25px; /* Bordes más redondeados */
+            transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #ffb300; /* Naranja ámbar vibrante */
+            color: #1a237e; /* Texto azul oscuro al hover */
+            transform: translateY(-3px) scale(1.05); /* Efecto de levantamiento y ligero agrandamiento */
+            box-shadow: 0 5px 15px rgba(255, 179, 0, 0.4); /* Sombra de color en hover */
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.5s ease;
+            transform: skewX(-20deg);
+            opacity: 0;
+        }
+
+        nav ul li a:hover::before {
+            left: 100%;
+            opacity: 1;
+        }
+
+        /* Contenido principal */
+        main {
+            padding: 20px 0;
+        }
+
+        article {
+            background-color: #ffffff; /* Blanco puro para las cajas de contenido */
+            padding: 35px;
+            margin-bottom: 35px;
+            border-radius: 12px; /* Bordes más redondeados */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Sombra más fuerte y suave */
+            animation: fadeInUp 1s ease-out; /* Animación de entrada */
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Transición para el hover */
+            border: 1px solid #e0e0e0; /* Borde sutil */
+        }
+
+        article:nth-child(even) {
+            background-color: #f8fcfd; /* Ligeramente diferente para artículos pares */
+        }
+
+        article:hover {
+            transform: translateY(-8px) scale(1.01); /* Efecto de levantamiento y ligero escalado en hover */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25); /* Sombra más pronunciada en hover */
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        article h2 {
+            color: #0d47a1; /* Azul oscuro primario */
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 0;
+            border-bottom: 3px solid #ffb300; /* Línea naranja más gruesa */
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            font-size: 2.4em;
+            text-align: center;
+            position: relative;
+        }
+
+        article h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #e65100; /* Un naranja más oscuro para el detalle */
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        article h3 {
+            color: #3f51b5; /* Azul medio */
+            margin-top: 30px;
+            font-size: 1.7em;
+            border-left: 5px solid #ffb300;
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+
+        article p {
+            margin-bottom: 18px;
+            font-size: 1.05em;
+            color: #000000;
+        }
+
+        article img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        article img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Listas mejoradas */
+        article ul, article ol {
+            margin-left: 30px;
+            margin-bottom: 25px;
+        }
+
+        article ul li {
+            margin-bottom: 10px;
+            list-style-type: '🌟 '; /* Viñetas personalizadas y más llamativas */
+            padding-left: 5px;
+        }
+
+        article ol li {
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #444;
+        }
+
+        /* Enlaces dentro del contenido */
+        article a {
+            color: #00796b; /* Verde azulado para enlaces */
+            text-decoration: underline;
+            font-weight: bold;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+        article a:hover {
+            color: #e65100; /* Naranja oscuro al hover */
+            text-decoration: none;
+        }
+
+
+        /* Botones de acción */
+        .call-to-action {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #43a047; /* Verde esmeralda */
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px; /* Botones más redondeados */
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 15px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: #388e3c; /* Verde más oscuro al pasar el ratón */
+            transform: translateY(-4px) scale(1.02); /* Efecto de levantamiento y escala */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background-color: #fb8c00; /* Naranja ámbar */
+        }
+
+        .btn-secondary:hover {
+            background-color: #ef6c00; /* Naranja más oscuro */
+        }
+
+        /* Secciones interactivas */
+        .interactive-section {
+            background-color: #e8f5e9; /* Verde muy claro para la sección interactiva */
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.08); /* Sombra interna más pronunciada */
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            border: 1px solid #c8e6c9;
+        }
+
+        .interactive-section:hover {
+            transform: translateY(-5px);
+            box-shadow: inset 0 0 25px rgba(0,0,0,0.12);
+        }
+
+        .interactive-section h3 {
+            color: #2e7d32; /* Verde oscuro para el título interactivo */
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            animation: rubberBand 1s ease-out; /* Animación de rebote */
+        }
+
+        @keyframes rubberBand {
+            from { transform: scale3d(1, 1, 1); }
+            30% { transform: scale3d(1.25, 0.75, 1); }
+            40% { transform: scale3d(0.75, 1.25, 1); }
+            50% { transform: scale3d(1.15, 0.85, 1); }
+            65% { transform: scale3d(.95, 1.05, 1); }
+            75% { transform: scale3d(1.05, .95, 1); }
+            to { transform: scale3d(1, 1, 1); }
+        }
+
+
+        /* Formularios generales */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #3f51b5; /* Azul medio */
+            font-size: 1.1em;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #a7d9f7; /* Borde más suave */
+            border-radius: 8px; /* Bordes redondeados */
+            box-sizing: border-box;
+            font-size: 1.05em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: #f5fafd; /* Fondo ligeramente azulado */
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            border-color: #0d47a1; /* Borde azul oscuro al enfocar */
+            box-shadow: 0 0 12px rgba(13, 71, 161, 0.4); /* Sombra azul al enfocar */
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group button[type="submit"] {
+            width: auto;
+            padding: 15px 30px;
+            background-color: #3f51b5; /* Azul vibrante */
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .form-group button[type="submit"]:hover {
+            background-color: #303f9f; /* Azul más oscuro */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Seccion de comentarios */
+        .comments-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px dashed #90caf9; /* Separador más notorio */
+            background-color: #f0f4f7; /* Fondo suave para los comentarios */
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .comments-section h3 {
+            color: #0d47a1;
+            margin-bottom: 25px;
+            font-size: 2em;
+            text-align: center;
+            border-bottom: 2px solid #ffb300;
+            padding-bottom: 10px;
+        }
+
+        .comment {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.6s ease-out; /* Animación de entrada para cada comentario */
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .comment:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        .comment strong {
+            color: #3f51b5;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .comment-date {
+            font-size: 0.9em;
+            color: #777;
+            margin-left: 10px;
+        }
+
+        .comment-form {
+            margin-top: 30px;
+            border-top: 1px dashed #cccccc;
+            padding-top: 25px;
+        }
+
+        /* Encuestas */
+        .poll-section {
+            margin-top: 30px;
+            padding: 35px;
+            background-color: #e1f5fe; /* Azul claro para la encuesta */
+            border-radius: 15px;
+            border: 1px solid #90caf9;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .poll-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+
+        .poll-section h4 {
+            color: #0d47a1;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 2px solid #ffb300;
+            padding-bottom: 10px;
+        }
+
+        .poll-options label {
+            display: block;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-size: 1.15em;
+            color: #444;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 8px 0;
+        }
+
+        .poll-options label:hover {
+            color: #00796b;
+            transform: translateX(5px);
+        }
+
+        .poll-options input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.3);
+            vertical-align: middle;
+        }
+
+        .poll-results {
+            margin-top: 30px;
+            border-top: 2px dashed #90caf9;
+            padding-top: 25px;
+            display: none;
+        }
+
+        .poll-results h4 {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 15px;
+        }
+
+        .poll-results div {
+            background-color: #cfd8dc; /* Gris azulado suave */
+            margin-bottom: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            height: 35px;
+            line-height: 35px;
+            font-weight: bold;
+            color: #333;
+            padding-left: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .poll-bar {
+            background-color: #66bb6a; /* Verde más brillante */
+            color: white;
+            text-align: right;
+            padding-right: 15px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: width 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Animación más elástica */
+            z-index: 1;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.25);
+        }
+
+        .poll-results div .poll-percentage {
+            position: relative;
+            z-index: 2;
+            color: #333;
+            mix-blend-mode: difference;
+            margin-left: 10px;
+            font-size: 0.95em;
+        }
+
+
+        /* Referencias */
+        .references {
+            background-color: #f3e5f5; /* Púrpura muy claro */
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 50px;
+            border-left: 6px solid #8e24aa; /* Borde púrpura intenso */
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        }
+        .references:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .references h2 {
+            color: #6a1b9a; /* Púrpura oscuro */
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 2.2em;
+            border-bottom: 2px solid #ce93d8;
+            padding-bottom: 10px;
+        }
+
+        .references ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .references ul li {
+            margin-bottom: 12px;
+            font-size: 1em;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .references ul li::before {
+            content: '🔗'; /* Icono de cadena para referencias */
+            position: absolute;
+            left: 0;
+            color: #d81b60; /* Rosa intenso */
+            font-size: 1.2em;
+            top: -2px;
+        }
+
+        .references ul li a {
+            color: #424242;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .references ul li a:hover {
+            text-decoration: underline;
+            color: #8e24aa;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #1a237e; /* Mismo azul índigo del encabezado */
+            color: #e3f2fd;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 50px;
+            box-shadow: 0 -4px 8px rgb(0, 0, 0);
+            font-size: 0.95em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Adaptabilidad para dispositivos móviles (Media Queries) */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            nav ul li a {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+
+            article {
+                padding: 25px;
+            }
+
+            article h2 {
+                font-size: 2em;
+            }
+
+            article h3 {
+                font-size: 1.4em;
+            }
+
+            .btn {
+                display: block;
+                margin: 15px auto;
+                width: 90%;
+            }
+
+            .interactive-section,
+            .comments-section,
+            .references,
+            .poll-section {
+                padding: 25px;
+            }
+
+            .interactive-section h3 {
+                font-size: 1.8em;
+            }
+
+            .comments-section h3, .poll-section h4 {
+                font-size: 1.6em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            nav ul li {
+                width: 100%;
+            }
+
+            article h2 {
+                font-size: 1.6em;
+            }
+
+            article h3 {
+                font-size: 1.2em;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.95em;
+            }
+
+            .form-group input, .form-group textarea {
+                padding: 10px;
+                font-size: 0.95em;
+            }
+
+            .form-group button {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+        }
+    
